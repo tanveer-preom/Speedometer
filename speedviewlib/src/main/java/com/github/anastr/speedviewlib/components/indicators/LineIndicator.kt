@@ -35,6 +35,7 @@ class LineIndicator(context: Context, private val length: Float) : Indicator<Lin
 
         indicatorPaint.style = Paint.Style.STROKE
         indicatorPaint.strokeWidth = width
+        indicatorPaint.color = color
      }
 
     override fun setWithEffects(withEffects: Boolean) {

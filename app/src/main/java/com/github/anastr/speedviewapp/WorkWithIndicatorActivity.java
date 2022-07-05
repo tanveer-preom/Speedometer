@@ -117,7 +117,7 @@ public class WorkWithIndicatorActivity extends AppCompatActivity implements Adap
 
     public void imageIndicator(View view) {
         ImageIndicator imageIndicator = new ImageIndicator(getApplicationContext()
-                , ContextCompat.getDrawable(this, R.drawable.image_indicator1));
+                , ContextCompat.getDrawable(this, R.drawable.circle));
         speedometer.setIndicator(imageIndicator);
     }
 }

@@ -1,1 +1,1 @@
-include ':speedviewlib'
+include ':speedviewlib', ':app'

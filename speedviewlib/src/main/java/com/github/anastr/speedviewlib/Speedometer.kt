@@ -681,40 +681,40 @@ abstract class Speedometer @JvmOverloads constructor(
      * @param c Canvas to draw.
      */
     protected fun drawDefMinMaxSpeedPosition(c: Canvas) {
-        textPaint.textAlign = when {
-            startDegree % 360 <= 90 -> Paint.Align.RIGHT
-            startDegree % 360 <= 180 -> Paint.Align.LEFT
-            startDegree % 360 <= 270 -> Paint.Align.CENTER
-            else -> Paint.Align.RIGHT
-        }
-        var tickStart: CharSequence? = null
-        if (onPrintTickLabel != null)
-            tickStart = onPrintTickLabel!!.invoke(0, minSpeed)
-        // if (onPrintTickLabel is null or it returns null)
-        if (tickStart == null)
-            tickStart = "%.0f".format(locale, minSpeed)
-        c.save()
-        c.rotate(startDegree + 90f, size * .5f, size * .5f)
-        c.rotate(-(startDegree + 90f), sizePa * .5f - textPaint.textSize + padding, textPaint.textSize + padding)
-        c.drawText(tickStart.toString(), sizePa * .5f - textPaint.textSize + padding, textPaint.textSize + padding, textPaint)
-        c.restore()
-        textPaint.textAlign = when {
-            endDegree % 360 <= 90 -> Paint.Align.RIGHT
-            endDegree % 360 <= 180 -> Paint.Align.LEFT
-            endDegree % 360 <= 270 -> Paint.Align.CENTER
-            else -> Paint.Align.RIGHT
-        }
-        var tickEnd: CharSequence? = null
-        if (onPrintTickLabel != null)
-            tickEnd = onPrintTickLabel!!.invoke(1, maxSpeed)
-        // if (onPrintTickLabel is null or it returns null)
-        if (tickEnd == null)
-            tickEnd = "%.0f".format(locale, maxSpeed)
-        c.save()
-        c.rotate(endDegree + 90f, size * .5f, size * .5f)
-        c.rotate(-(endDegree + 90f), sizePa * .5f + textPaint.textSize + padding.toFloat(), textPaint.textSize + padding)
-        c.drawText(tickEnd.toString(), sizePa * .5f + textPaint.textSize + padding.toFloat(), textPaint.textSize + padding, textPaint)
-        c.restore()
+//        textPaint.textAlign = when {
+//            startDegree % 360 <= 90 -> Paint.Align.RIGHT
+//            startDegree % 360 <= 180 -> Paint.Align.LEFT
+//            startDegree % 360 <= 270 -> Paint.Align.CENTER
+//            else -> Paint.Align.RIGHT
+//        }
+//        var tickStart: CharSequence? = null
+//        if (onPrintTickLabel != null)
+//            tickStart = onPrintTickLabel!!.invoke(0, minSpeed)
+//        // if (onPrintTickLabel is null or it returns null)
+//        if (tickStart == null)
+//            tickStart = "%.0f".format(locale, minSpeed)
+//        c.save()
+//        c.rotate(startDegree + 90f, size * .5f, size * .5f)
+//        c.rotate(-(startDegree + 90f), sizePa * .5f - textPaint.textSize + padding, textPaint.textSize + padding)
+//        c.drawText(tickStart.toString(), sizePa * .5f - textPaint.textSize + padding, textPaint.textSize + padding, textPaint)
+//        c.restore()
+//        textPaint.textAlign = when {
+//            endDegree % 360 <= 90 -> Paint.Align.RIGHT
+//            endDegree % 360 <= 180 -> Paint.Align.LEFT
+//            endDegree % 360 <= 270 -> Paint.Align.CENTER
+//            else -> Paint.Align.RIGHT
+//        }
+//        var tickEnd: CharSequence? = null
+//        if (onPrintTickLabel != null)
+//            tickEnd = onPrintTickLabel!!.invoke(1, maxSpeed)
+//        // if (onPrintTickLabel is null or it returns null)
+//        if (tickEnd == null)
+//            tickEnd = "%.0f".format(locale, maxSpeed)
+//        c.save()
+//        c.rotate(endDegree + 90f, size * .5f, size * .5f)
+//        c.rotate(-(endDegree + 90f), sizePa * .5f + textPaint.textSize + padding.toFloat(), textPaint.textSize + padding)
+//        c.drawText(tickEnd.toString(), sizePa * .5f + textPaint.textSize + padding.toFloat(), textPaint.textSize + padding, textPaint)
+//        c.restore()
     }
 
     /**

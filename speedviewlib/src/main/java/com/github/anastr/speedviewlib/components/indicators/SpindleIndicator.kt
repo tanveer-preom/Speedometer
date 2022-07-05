@@ -22,15 +22,11 @@ class SpindleIndicator(context: Context) : Indicator<SpindleIndicator>(context) 
     }
 
     override fun draw(canvas: Canvas) {
-        canvas.drawPath(indicatorPath, indicatorPaint)
+        canvas.drawCircle(getCenterX(), speedometer!!.padding.toFloat() + speedometer!!.indicatorPadding, 10f, indicatorPaint)
     }
 
     override fun updateIndicator() {
         indicatorPath.reset()
-        indicatorPath.moveTo(getCenterX(), getCenterY())
-        indicatorPath.quadTo(getCenterX() - width, getViewSize() * .34f + speedometer!!.padding, getCenterX(), getViewSize() * .18f + speedometer!!.padding)
-        indicatorPath.quadTo(getCenterX() + width, getViewSize() * .34f + speedometer!!.padding, getCenterX(), getCenterY())
-
         indicatorPaint.color = color
     }
 

@@ -25,7 +25,7 @@ class SpindleIndicator(val context: Context) : Indicator<SpindleIndicator>(conte
     }
 
     override fun draw(canvas: Canvas) {
-        canvas.drawCircle(getCenterX(), speedometer!!.padding.toFloat() + speedometer!!.indicatorPadding, dpTOpx(2f), indicatorPaint)
+        canvas.drawCircle(getCenterX(), speedometer!!.padding.toFloat() + speedometer!!.indicatorPadding, dpTOpx(4f), indicatorPaint)
     }
 
     override fun updateIndicator() {

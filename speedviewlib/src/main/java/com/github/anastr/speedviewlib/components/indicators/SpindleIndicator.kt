@@ -4,12 +4,15 @@ import android.content.Context
 import android.graphics.BlurMaskFilter
 import android.graphics.Canvas
 import android.graphics.Path
+import android.util.DisplayMetrics
+import java.security.AccessController.getContext
+
 
 /**
  * this Library build By Anas Altair
  * see it on [GitHub](https://github.com/anastr/SpeedView)
  */
-class SpindleIndicator(context: Context) : Indicator<SpindleIndicator>(context) {
+class SpindleIndicator(val context: Context) : Indicator<SpindleIndicator>(context) {
 
     private val indicatorPath = Path()
 
@@ -22,7 +25,7 @@ class SpindleIndicator(context: Context) : Indicator<SpindleIndicator>(context) 
     }
 
     override fun draw(canvas: Canvas) {
-        canvas.drawCircle(getCenterX(), speedometer!!.padding.toFloat() + speedometer!!.indicatorPadding, 10f, indicatorPaint)
+        canvas.drawCircle(getCenterX(), speedometer!!.padding.toFloat() + speedometer!!.indicatorPadding, dpTOpx(2f), indicatorPaint)
     }
 
     override fun updateIndicator() {
@@ -36,5 +39,10 @@ class SpindleIndicator(context: Context) : Indicator<SpindleIndicator>(context) 
         } else {
             indicatorPaint.maskFilter = null
         }
+    }
+
+    fun dpToPx(dp: Int): Int {
+        val displayMetrics: DisplayMetrics = context.getResources().getDisplayMetrics()
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
     }
 }
